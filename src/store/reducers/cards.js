@@ -1,4 +1,4 @@
-import CHANGE_CARD_COLOR from "../actions";
+import {CHANGE_CARD_COLOR} from '../actionTypes';
 import shuffle  from 'shuffle-array';
 const CardState = {
     SHOW: 0,
@@ -28,7 +28,7 @@ defaultCards = shuffle(defaultCards);
 const cards = (state=defaultCards, action) => {
     switch(action.type){
         case CHANGE_CARD_COLOR:
-            return action.color;
+            return state.map(card => card.id === action.id ? {...card, currentColor: action.color} : card);
         default: return state;
     }
 }

@@ -1,6 +1,6 @@
-const CHANGE_CARD_COLOR = "CHANGE_CARD_COLOR";
+import { CHANGE_CARD_COLOR } from '../actionTypes';
 
-const changeCardColor = color => ({type: CHANGE_CARD_COLOR, color}); 
+export const changeCardColor = (id, color) => ({type: CHANGE_CARD_COLOR, id, color}); 
 
 
 
