@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 class Cards extends Component{
     render(){
         const { cards, changeCardColor } = this.props;
+        let clickedCard = {};
         const cardButtons = cards.map(card => {
             return (
                 <button key={card.id}style={{
@@ -14,10 +15,11 @@ class Cards extends Component{
                 border: '3px solid black'}} onClick={(e) => {
                     e.preventDefault();
                     //Flip Card
-                    if(card.onClickable){
-                        const color = card.currentColor === "white" ? card.color : "white";
-                        changeCardColor(card.id, color);
-                    }
+            
+                    const color = card.currentColor === "white" ? card.color : "white";
+                    changeCardColor(card.id, color);
+                    
+                    
 
 
                 }}>

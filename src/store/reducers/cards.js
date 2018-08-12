@@ -28,7 +28,7 @@ defaultCards = shuffle(defaultCards);
 const cards = (state=defaultCards, action) => {
     switch(action.type){
         case CHANGE_CARD_COLOR:
-            return state.map(card => card.id === action.id ? {...card, currentColor: action.color, show: CardState.SHOW} : card);
+            return state.map(card => card.id === action.id ? {...card, currentColor: action.color, show: CardState.SHOW, onClickable: false} : card);
         default: return state;
     }
 }
