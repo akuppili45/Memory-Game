@@ -13,8 +13,12 @@ class Cards extends Component{
                 margin: '15px',
                 border: '3px solid black'}} onClick={(e) => {
                     e.preventDefault();
-                    const color = card.currentColor === "white" ? card.color : "white";
-                    changeCardColor(card.id, color);
+                    //Flip Card
+                    if(card.onClickable){
+                        const color = card.currentColor === "white" ? card.color : "white";
+                        changeCardColor(card.id, color);
+                    }
+
 
                 }}>
                 </button>
