@@ -4,12 +4,13 @@ import { configureStore } from "../store";
 import { BrowserRouter as Router } from "react-router-dom";
 import Game from '../components/Game';
 import { connect } from 'react-redux';
+import GamePage from "./GamePage";
 const store = configureStore();
 
 const App = () => (
   <Provider store={store}>
     <Router>
-       {/* <Game cards={cards}/> */}
+       <GamePage />
     </Router>
   </Provider>
 );

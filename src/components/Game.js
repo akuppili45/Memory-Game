@@ -1,6 +1,7 @@
 import React from 'react';
+import Cards from './Cards';
 
 const Game = ({ cards }) => (
-    <div></div>
+    <Cards cards={cards}/>
 );
 export default Game;
