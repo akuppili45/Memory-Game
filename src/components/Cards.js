@@ -11,8 +11,7 @@ class Cards extends Component{
                 width: '75px',
                 height: '75px',
                 margin: '15px',
-                border: '3px solid black'}}>
-                
+                border: '3px solid black'}} onClick>
                 </button>
             );
 

@@ -1,11 +1,11 @@
-import REVEAL_CARD_COLOR from "../actions";
-
+import CHANGE_CARD_COLOR from "../actions";
+import shuffle  from 'shuffle-array';
 const CardState = {
     SHOW: 0,
     HIDE: 1,
     MATCHING: 2
 }
-const defaultCards = [
+let defaultCards = [
     {id: 0, show: CardState.HIDE, onClickable: true, color: 'red', currentColor: 'white'},
     {id: 1, show: CardState.HIDE, onClickable: true, color: 'red', currentColor: 'white'},
     {id: 2, show: CardState.HIDE, onClickable: true, color: 'blue', currentColor: 'white'},
@@ -23,10 +23,11 @@ const defaultCards = [
     {id: 14, show: CardState.HIDE, onClickable: true, color: 'black', currentColor: 'white'},
     {id: 15, show: CardState.HIDE, onClickable: true, color: 'black', currentColor: 'white'}
 ];
+defaultCards = shuffle(defaultCards);
 
 const cards = (state=defaultCards, action) => {
     switch(action.type){
-        case REVEAL_CARD_COLOR:
+        case CHANGE_CARD_COLOR:
             return action.color;
         default: return state;
     }
