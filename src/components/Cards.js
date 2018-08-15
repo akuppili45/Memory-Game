@@ -15,7 +15,6 @@ class Cards extends Component{
                 border: '3px solid black'}} onClick={(e) => {
                     e.preventDefault();
                     //Flip Card
-            
                     const color = card.currentColor === "white" ? card.color : "white";
                     changeCardColor(card.id, color);
                     

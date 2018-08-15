@@ -1,5 +1,7 @@
 import { combineReducers  } from 'redux';
 import cards from './cards';
-
-const rootReducer = combineReducers({cards});
+import player from './player';
+const playerOne = player;
+const playerTwo = player;
+const rootReducer = combineReducers({cards, playerOne, playerTwo});
 export default rootReducer;
