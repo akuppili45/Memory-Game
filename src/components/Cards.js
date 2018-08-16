@@ -7,14 +7,20 @@ class Cards extends Component{
         const currentPlayer = playerOne.turn ? {...playerOne, name:"Player One"} : {...playerTwo, name: "Player Two"}; //default playerOne
         // console.log(currentPlayer);
         const { cardsClicked } = currentPlayer;
-        if(cardsClicked.length === 2){
+        // console.log(cardsClicked);
+        if(cardsClicked.length === 3){
             //dispatch switch turn which calls render function again
             // switchTurn(playerOne);
+            console.log(cardsClicked);
+            switchTurn(playerOne); //This dispatch is happening at the same time as changeColor dispatch so it is throwing a warning
+            changeCardColor(cardsClicked[0].id, "white");
+            changeCardColor(cardsClicked[1].id, "white");
+
+            // console.log("Nexts")
             while(cardsClicked.length > 0){
                 cardsClicked.pop();
             }
-            switchTurn(playerOne);
-            // switchTurn(playerTwo);
+            
         }
         const cardButtons = cards.map(card => {
             return (
