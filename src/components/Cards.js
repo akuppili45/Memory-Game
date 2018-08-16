@@ -14,8 +14,10 @@ class Cards extends Component{
             console.log(cardsClicked);
             if(cardsClicked[0].id !== cardsClicked[1].id){
                 switchTurn(playerOne); //This dispatch is happening at the same time as changeColor dispatch so it is throwing a warning
-                changeCardColor(cardsClicked[0].id, "white");
-                changeCardColor(cardsClicked[1].id, "white");
+                if(cardsClicked[0].color !== cardsClicked[1].color){
+                    changeCardColor(cardsClicked[0].id, "white");
+                    changeCardColor(cardsClicked[1].id, "white");
+                }
             }
             
 
