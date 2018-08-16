@@ -12,7 +12,8 @@ class Cards extends Component{
             while(currentPlayer.cardsClicked.length > 0){
                 currentPlayer.cardsClicked.pop();
             }
-            switchTurn(playerTwo);
+            switchTurn(playerOne);
+            // switchTurn(playerTwo);
         }
         const cardButtons = cards.map(card => {
             return (
