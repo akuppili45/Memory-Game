@@ -3,8 +3,17 @@ import React, { Component } from 'react';
 
 class Cards extends Component{
     render(){
-        const { cards, changeCardColor } = this.props;
-        let clickedCard = {};
+        const { cards, changeCardColor, playerOne, playerTwo, switchTurn } = this.props;
+        const currentPlayer = playerOne.turn ? {...playerOne, name:"Player One"} : {...playerTwo, name: "Player Two"}; //default playerOne
+        console.log(currentPlayer);
+        if(currentPlayer.cardsClicked.length === 2){
+            //dispatch switch turn which calls render function again
+            // switchTurn(playerOne);
+            while(currentPlayer.cardsClicked.length > 0){
+                currentPlayer.cardsClicked.pop();
+            }
+            switchTurn(playerTwo);
+        }
         const cardButtons = cards.map(card => {
             return (
                 <button key={card.id}style={{
@@ -16,6 +25,7 @@ class Cards extends Component{
                     e.preventDefault();
                     //Flip Card
                     const color = card.currentColor === "white" ? card.color : "white";
+                    currentPlayer.cardsClicked.push(card);
                     changeCardColor(card.id, color);
                     
                     
@@ -29,6 +39,7 @@ class Cards extends Component{
         return (
             <div style={{width: "60%", paddingLeft: "20%"}}>
                 {cardButtons}
+                <div>{currentPlayer.name}</div>
             </div>
         );
     }
