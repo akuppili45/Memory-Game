@@ -5,12 +5,13 @@ class Cards extends Component{
     render(){
         const { cards, changeCardColor, playerOne, playerTwo, switchTurn } = this.props;
         const currentPlayer = playerOne.turn ? {...playerOne, name:"Player One"} : {...playerTwo, name: "Player Two"}; //default playerOne
-        console.log(currentPlayer);
-        if(currentPlayer.cardsClicked.length === 2){
+        // console.log(currentPlayer);
+        const { cardsClicked } = currentPlayer;
+        if(cardsClicked.length === 2){
             //dispatch switch turn which calls render function again
             // switchTurn(playerOne);
-            while(currentPlayer.cardsClicked.length > 0){
-                currentPlayer.cardsClicked.pop();
+            while(cardsClicked.length > 0){
+                cardsClicked.pop();
             }
             switchTurn(playerOne);
             // switchTurn(playerTwo);
