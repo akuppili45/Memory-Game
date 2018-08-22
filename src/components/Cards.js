@@ -6,7 +6,7 @@ class Cards extends Component{
         const { cards, changeCardColor } = this.props;
         // console.log(currentPlayer);
         // console.log(cardsClicked);
-       
+       //logic for if currentPlayer.cardOne && currentPlayer.cardTwo
         const cardButtons = cards.map(card => {
             return (
                 <button key={card.id}style={{
@@ -18,7 +18,7 @@ class Cards extends Component{
                     e.preventDefault();
                     //Flip Card
                     const color = card.currentColor === "white" ? card.color : "white";
-                    changeCardColor(card.id, color);
+                    changeCardColor(card.id, color); //This is the call that needs to be conditioned because it is heavily being repeated.
                 }}>
                 </button>
             );
