@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 class Cards extends Component{
     render(){
-        const { cards, changeCardColor } = this.props;
+        const { cards, changeCardColor, changeTwoCards } = this.props;
         // console.log(currentPlayer);
         // console.log(cardsClicked);
        //logic for if currentPlayer.cardOne && currentPlayer.cardTwo
@@ -19,6 +19,7 @@ class Cards extends Component{
                     //Flip Card
                     const color = card.currentColor === "white" ? card.color : "white";
                     changeCardColor(card.id, color); //This is the call that needs to be conditioned because it is heavily being repeated.
+                    // changeTwoCards(card.id, 0, "green");
                 }}>
                 </button>
             );
