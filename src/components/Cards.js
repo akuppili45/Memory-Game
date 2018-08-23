@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class Cards extends Component{
     render(){
-        const { cards, cardOne, flipFirstCard, turn, playerOne, playerTwo } = this.props;
+        const { cards, cardOne, flipFirstCard, turn, playerOne, playerTwo, flipSecondCard } = this.props;
         // console.log(cardOne);
        const currentPlayer = turn === "PLAYER_ONE" ? playerOne : playerTwo;
        const newPlayer = turn !== "PLAYER_ONE" ? "PLAYER_ONE" : "PLAYER_TWO";
@@ -17,12 +17,15 @@ class Cards extends Component{
                 margin: '15px',
                 border: '3px solid black'}} onClick={(e) => {
                     e.preventDefault();
+                    // console.log(cardOne);
                     if(!cardOne.id){
                         flipFirstCard(card, card.color);
                     }
                     else{
                         flipSecondCard(cardOne, card, card.color, currentPlayer, newPlayer);
                     }
+                        
+                    
                     
                     // const color = card.currentColor === "white" ? card.color : "white";
                     // if(card.currentColor === "white"){

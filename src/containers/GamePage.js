@@ -14,7 +14,8 @@ const GamePage = ({cards, turn, flipFirstCard, playerOne, playerTwo, cardOne}) =
         playerOne={playerOne} 
         playerTwo={playerTwo} 
         cardOne={cardOne}
-        turn={turn}/>);
+        turn={turn}
+        flipSecondCard={flipSecondCard}/>);
 };
 const mapStateToProps = state => ({
     cards: state.cards, 
@@ -23,6 +24,6 @@ const mapStateToProps = state => ({
     cardOne: state.cardOne,
     turn: state.turn
 });
-const mapDispatchToProps = dispatch => ({flipFirstCard: (card, color) => dispatch(flipFirstCard(card, color))});
+const mapDispatchToProps = dispatch => ({flipFirstCard: (card, color) => dispatch(flipFirstCard(card, color)), flipSecondCard: (card1, card2, secondCardColor, currentPlayerObj, newPlayerString) => dispatch(flipSecondCard(card1, card2, secondCardColor, currentPlayerObj, newPlayerString))});
 export default connect(mapStateToProps, mapDispatchToProps)(GamePage);
 

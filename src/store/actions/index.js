@@ -10,23 +10,25 @@ export const switchTurn = playerString => ({type: SWITCH_TURN, playerString});
 export const setCardOne = card => ({type: CHANGE_CARD_ONE, card});
 
 export const flipFirstCard = (card, color) => (dispatch => {
-    dispatch(changeCardColor(card.id, color));
-    dispatch(setCardOne(card));
+    // dispatch(changeCardColor(card.id, color));
+    // dispatch(setCardOne(card));
+    console.log("first");
 });
 
 export const addMatch = player => ({type: ADD_POINT, player});
 
 export const flipSecondCard = (card1, card2, secondCardColor, currentPlayerObj, newPlayerString) => (dispatch => {
-    dispatch(changeCardColor(card2.id, secondCardColor));
-    setInterval(() => {
-        dispatch(changeCardColor(card1.id, "white"));
-        dispatch(changeCardColor(card2.id, "white"));
-        dispatch(switchTurn(newPlayerString));
-        dispatch(setCardOne({}));
-    }, 500);
-    if(card1.color === card2.color){
-        dispatch(addMatch(currentPlayerObj));
-    }
+    console.log("HELLOflibsecond")
+    // dispatch(changeCardColor(card2.id, secondCardColor));
+    // setInterval(() => {
+    //     dispatch(changeCardColor(card1.id, "white"));
+    //     dispatch(changeCardColor(card2.id, "white"));
+    //     dispatch(switchTurn(newPlayerString));
+    //     dispatch(setCardOne({}));
+    // }, 500);
+    // if(card1.color === card2.color){
+    //     dispatch(addMatch(currentPlayerObj));
+    // }
 });
-
+// export const flipSecondCard = (card1, card2, secondCardColor, currentPlayerObj, newPlayerString) => {console.log("HELLO")}
 
