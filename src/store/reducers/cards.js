@@ -23,7 +23,7 @@ let defaultCards = [
     {id: 14, show: CardState.HIDE, onClickable: true, color: 'black', currentColor: 'white'},
     {id: 15, show: CardState.HIDE, onClickable: true, color: 'black', currentColor: 'white'}
 ];
-defaultCards = shuffle(defaultCards);
+// defaultCards = shuffle(defaultCards);
 
 const cards = (state=defaultCards, action) => {
     switch(action.type){

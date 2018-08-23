@@ -17,8 +17,7 @@ class Cards extends Component{
                 margin: '15px',
                 border: '3px solid black'}} onClick={(e) => {
                     e.preventDefault();
-
-                    if(!cardOne.id){
+                    if(!cardOne.color){ //BUG REVELATION: !cardOne.id is true if cardOne.id is 0.
                         flipFirstCard(card, card.color);
                     }
                     else{
