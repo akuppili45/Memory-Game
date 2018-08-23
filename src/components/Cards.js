@@ -17,24 +17,13 @@ class Cards extends Component{
                 margin: '15px',
                 border: '3px solid black'}} onClick={(e) => {
                     e.preventDefault();
-                    // console.log(cardOne);
+
                     if(!cardOne.id){
                         flipFirstCard(card, card.color);
                     }
                     else{
                         flipSecondCard(cardOne, card, card.color, currentPlayer, newPlayer);
                     }
-                        
-                    
-                    
-                    // const color = card.currentColor === "white" ? card.color : "white";
-                    // if(card.currentColor === "white"){
-                    //     // changeCardColor(card, card.color); //This is the call that needs to be conditioned because it is heavily being repeated.
-                    //     // changeCardColorAndAddToCardOne(card, card.color);
-                    // }
-                    // else{
-                    //     // secondCardAndSwitchTurn(cardOne, card); //Actions: Change color of second card, wait 5 milliseconds and change both cards to white and then switchTurn
-                    // }
                 }}>
                 </button>
             );
