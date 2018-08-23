@@ -20,12 +20,12 @@ export const addMatch = player => ({type: ADD_POINT, player});
 export const flipSecondCard = (card1, card2, secondCardColor, currentPlayerObj, newPlayerString) => (dispatch => {
     // console.log("HELLOflibsecond")
     dispatch(changeCardColor(card2.id, secondCardColor));
-    setInterval(() => {
+    setTimeout(() => {
         dispatch(changeCardColor(card1.id, "white"));
         dispatch(changeCardColor(card2.id, "white"));
-        dispatch(switchTurn(newPlayerString));
         dispatch(setCardOne({}));
-    }, 500);
+        dispatch(switchTurn(newPlayerString));
+    }, 5000);
     if(card1.color === card2.color){
         dispatch(addMatch(currentPlayerObj));
     }
