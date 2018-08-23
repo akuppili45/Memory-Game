@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 class Cards extends Component{
     render(){
         const { cards, cardOne, flipFirstCard, turn, playerOne, playerTwo, flipSecondCard } = this.props;
-        // console.log(cardOne);
        const currentPlayer = turn === "PLAYER_ONE" ? playerOne : playerTwo;
        const newPlayer = turn !== "PLAYER_ONE" ? "PLAYER_ONE" : "PLAYER_TWO";
        const cardButtons = cards.map(card => {
