@@ -1,5 +1,5 @@
 import React from 'react';
-import {changeCardColor, switchTurn, changeTwoCards, flipFirstCard, flipSecondCard} from '../store/actions';
+import {flipFirstCard, flipSecondCard} from '../store/actions';
 import { connect } from 'react-redux';
 import Cards from "../components/Cards";
 const GamePage = ({cards, turn, flipFirstCard, flipSecondCard, playerOne, playerTwo, cardOne}) => 
