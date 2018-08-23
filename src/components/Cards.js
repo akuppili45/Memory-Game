@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 
-
 class Cards extends Component{
     render(){
-        const { cards, changeCardColor } = this.props;
-        // console.log(currentPlayer);
-        // console.log(cardsClicked);
-       //logic for if currentPlayer.cardOne && currentPlayer.cardTwo
+        const { cards, cardOne, flipFirstCard, turn, playerOne, playerTwo } = this.props;
+        // console.log(cardOne);
+       const currentPlayer = turn === "PLAYER_ONE" ? playerOne : playerTwo;
+       const newPlayer = turn !== "PLAYER_ONE" ? "PLAYER_ONE" : "PLAYER_TWO";
+    //    console.log(currentPlayer);
+    
         const cardButtons = cards.map(card => {
             return (
                 <button key={card.id}style={{
@@ -16,11 +17,21 @@ class Cards extends Component{
                 margin: '15px',
                 border: '3px solid black'}} onClick={(e) => {
                     e.preventDefault();
-                    //Flip Card
-                    const color = card.currentColor === "white" ? card.color : "white";
-                    if(card.currentColor === "white"){
-                        changeCardColor(card.id, card.color); //This is the call that needs to be conditioned because it is heavily being repeated.
+                    if(!cardOne.id){
+                        flipFirstCard(card, card.color);
                     }
+                    else{
+                        flipSecondCard(cardOne, card, card.color, currentPlayer, newPlayer);
+                    }
+                    
+                    // const color = card.currentColor === "white" ? card.color : "white";
+                    // if(card.currentColor === "white"){
+                    //     // changeCardColor(card, card.color); //This is the call that needs to be conditioned because it is heavily being repeated.
+                    //     // changeCardColorAndAddToCardOne(card, card.color);
+                    // }
+                    // else{
+                    //     // secondCardAndSwitchTurn(cardOne, card); //Actions: Change color of second card, wait 5 milliseconds and change both cards to white and then switchTurn
+                    // }
                 }}>
                 </button>
             );
@@ -29,7 +40,7 @@ class Cards extends Component{
         return (
             <div style={{width: "60%", paddingLeft: "20%"}}>
                 {cardButtons}
-                <div></div>
+                <div>{turn}</div>
             </div>
         );
     }

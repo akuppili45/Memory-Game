@@ -1,16 +1,28 @@
 import React from 'react';
 import Game from '../components/Game';
-import {changeCardColor, switchTurn, changeTwoCards} from '../store/actions';
+import {changeCardColor, switchTurn, changeTwoCards, flipFirstCard, flipSecondCard} from '../store/actions';
 import { connect } from 'react-redux';
-const GamePage = ({cards, changeCardColor, changeTwoCards}) => {
+const GamePage = ({cards, turn, flipFirstCard, playerOne, playerTwo, cardOne}) => {
     // const currentPlayer = turn === "PLAYER_ONE" ? playerOne : playerTwo; 
     //check turns and set the current player accordingly possibly by dispatching turns
     //when you dispatch, entire component re renders and you change the turns key
     //pass current player to <Game> as a prop
-    console.log("render");
-    return (<Game cards={cards} changeCardColor={changeCardColor} changeTwoCards={changeTwoCards}/>);
+    // console.log(cardOne);
+    return (<Game 
+        cards={cards} 
+        flipFirstCard={flipFirstCard} 
+        playerOne={playerOne} 
+        playerTwo={playerTwo} 
+        cardOne={cardOne}
+        turn={turn}/>);
 };
-const mapStateToProps = state => ({cards: state.cards, playerOne: state.playerOne, playerTwo: state.playerTwo});
-const mapDispatchToProps = dispatch => ({changeCardColor: (id, color) => dispatch(changeCardColor(id, color)), changeTwoCards: (id1, id2, color) => dispatch(changeTwoCards(id1, id2, color))});
+const mapStateToProps = state => ({
+    cards: state.cards, 
+    playerOne: state.playerOne, 
+    playerTwo: state.playerTwo, 
+    cardOne: state.cardOne,
+    turn: state.turn
+});
+const mapDispatchToProps = dispatch => ({flipFirstCard: (card, color) => dispatch(flipFirstCard(card, color))});
 export default connect(mapStateToProps, mapDispatchToProps)(GamePage);
 
