@@ -6,9 +6,7 @@ class Cards extends Component{
         // console.log(cardOne);
        const currentPlayer = turn === "PLAYER_ONE" ? playerOne : playerTwo;
        const newPlayer = turn !== "PLAYER_ONE" ? "PLAYER_ONE" : "PLAYER_TWO";
-    //    console.log(currentPlayer);
-    
-        const cardButtons = cards.map(card => {
+       const cardButtons = cards.map(card => {
             return (
                 <button key={card.id}style={{
                 backgroundColor: card.currentColor,
